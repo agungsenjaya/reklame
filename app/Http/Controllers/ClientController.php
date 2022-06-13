@@ -3,34 +3,75 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Reklame;
+use App\Models\Reklame;
+use App\Models\Contact;
+use App\Models\Brand;
+use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Image,Storage, Mail;
 
 class ClientController extends Controller
 {
     
     public function home() {
-        return view('client.home');
+        return view('client.home')->with('reklame', Reklame::all())->with('brand', Brand::all());
     }
     
     public function about() {
-        return view('client.home');
+        return view('client.about');
     }
     
     public function reklame() {
-        return view('client.home')->with('reklame', Reklame::all());
+        return view('client.reklame')->with('reklame', Reklame::all());
     }
     
     public function reklame_view($id) {
-        $data = Reklame::find('slug', $id)->first();
-        return view('client.home',compact('data'));
+        $data = Reklame::where('slug', $id)->first();
+        return view('client.reklame_view',compact('data'))->with('reklame', Reklame::all());
     }
     
     public function contact() {
-        // 
+        return view('client.contact');
     }
     
     public function contact_send(Request $request) {
-        // 
+        $valid = Validator::make($request->all(), [
+            'nama' => 'required',
+            'email' => 'required|email',
+            'pesan' => 'required',
+            'g-recaptcha-response' => 'recaptcha',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed', 'Data gagal dimasukan');
+            return redirect()->back()->withErrors($valid->errors())->withInput();
+        }else{ 
+
+            $data = array(
+                'nama' => $request->nama, 
+                'email' => $request->email, 
+                'pesan' => $request->pesan,
+            );
+            
+            $send = Contact::create([
+                'nama' => $data['nama'],
+                'email' => $data['email'],
+                'pesan' => $data['pesan'],
+            ]);
+
+            if ($send) {
+                Mail::send('email.contact', ['data' => $data], function($mail) use($data) {
+                    $mail->from($data['email'], $data['nama']);
+                    $mail->to('enquiry@mapkreatif.com', 'Contact Email Website');
+                    // $mail->to('senjayaml@gmail.com', 'San Central Indah');
+                    $mail->subject('Contact Email Website'. ucwords($data['nama']));
+                });
+            }
+            Session::flash('success', 'Berhasil mengirim pesan..');
+            return redirect()->back();
+            
+        }
+    }
+
+    public function brand() {
+        return view('client.brand')->with('brand', Brand::all());
     }
 
 }

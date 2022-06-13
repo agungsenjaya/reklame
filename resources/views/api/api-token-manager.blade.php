@@ -152,9 +152,9 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
+            <x-jet-light-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-jet-secondary-button>
+            </x-jet-light-button>
 
             <x-jet-button wire:click="updateApiToken" wire:loading.attr="disabled">
                 {{ __('Save') }}
@@ -173,13 +173,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
+            <x-jet-light-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-jet-secondary-button>
+            </x-jet-light-button>
 
-            <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteApiToken">
+            <x-jet-secondary-button wire:loading.attr="disabled" wire:click="deleteApiToken">
                 {{ __('Delete') }}
-            </x-jet-danger-button>
+            </x-jet-secondary-button>
         </x-slot>
     </x-jet-confirmation-modal>
 </div>

@@ -34,9 +34,9 @@
     </x-slot>
 
     <x-slot name="footer">
-        <x-jet-secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
+        <x-jet-light-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
             {{ __('Cancel') }}
-        </x-jet-secondary-button>
+        </x-jet-light-button>
 
         <x-jet-button class="ms-2" wire:click="confirmPassword" wire:loading.attr="disabled">
             <div wire:loading wire:target="confirmPassword" class="spinner-border spinner-border-sm" role="status">

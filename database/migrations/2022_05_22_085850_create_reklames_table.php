@@ -17,15 +17,15 @@ class CreateReklamesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->longText('judul');
-            $table->longText('ukuran');
+            $table->json('ukuran');
             $table->enum('tipe',['portrait','landscape']);
             $table->enum('arah',['utara','timur laut','timur','tenggara','selatan','barat daya','barat','barat laut']);
             $table->enum('kategori',['indoor','outdoor']);
-            $table->string('foto');
-            $table->string('biaya');
-            $table->longText('alamat');
-            $table->string('longLat');
+            $table->json('foto');
+            $table->json('alamat');
+            $table->longText('content');
             $table->string('slug');
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Brand;
+use Carbon\Carbon;
+use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Image,Storage;
 
 class BrandController extends Controller
 {
@@ -13,7 +16,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.brand')->with('brand', Brand::all());
     }
 
     /**
@@ -23,7 +26,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brand_create');
     }
 
     /**
@@ -34,7 +37,30 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = Validator::make($request->all(), [
+            'judul' => 'required|unique:brands',
+            'foto' => 'required|mimes:jpg,bmp,png',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed', 'Data gagal dimasukan');
+            return redirect()->back()->withErrors($valid->errors())->withInput();
+        }else{ 
+            $img = $request->foto;
+            $img_new = time().($img->getClientOriginalName());
+            $img->move('img/brand', strtolower($img_new));
+
+            $data = Brand::create([
+                'user_id' => Auth::user()->id,
+                'judul' => strtolower($request->judul),
+                'foto' => 'img/brand/' . strtolower($img_new),
+                'slug' => Str::slug(strtolower($request->judul))
+            ]);
+            if ($data) {
+                Session::flash('success','Data berhasil dimasukan kedalam database');
+                return redirect()->route('brand.index');
+            }
+
+        }
     }
 
     /**
@@ -56,7 +82,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Brand::find($id);
+        return view('admin.brand_edit',compact('data'));
     }
 
     /**
@@ -68,7 +95,33 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Brand::find($id);
+        $valid = Validator::make($request->all(),[
+            'judul' => 'required',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed','Terjadi kesalahan saat memasukan data');
+            return redirect()->back()
+                        ->withErrors($valid)
+                        ->withInput();
+        }else{
+            
+            if ($request->hasFile('foto')) {
+                $img = $request->foto;
+                $img_new = time(). $img->getClientOriginalName();
+                $img->move('img/brand', strtolower($img_new));
+                $data->foto = 'img/brand/' . strtolower($img_new);
+            }
+
+            $data->judul = strtolower($request->judul);
+            $data->slug = Str::slug(strtolower($request->judul));
+            $data->save();
+
+            if ($data) {
+                Session::flash('success','Data berhasil diupdate kedalam database');
+                return redirect()->route('brand.index');
+            }
+        }
     }
 
     /**

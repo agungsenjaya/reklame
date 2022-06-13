@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
+use Carbon\Carbon;
+use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Image,Storage;
+use Illuminate\Support\Facades\Http;
 
 class OrderController extends Controller
 {
@@ -13,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.order')->with('order', Order::all());
     }
 
     /**
@@ -34,7 +38,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = Validator::make($request->all(), [
+            'nama' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed', 'Data gagal dimasukan');
+            return redirect()->back()->withErrors($valid->errors())->withInput();
+        }else{ 
+            $data = Order::create([
+                'reklame_id' => $request->reklame_id,
+                'user_id' => Auth::user()->id,
+                'kode' => Str::random(),
+                'status' => 'yes',
+                'nama' => $request->nama,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'nama' => $request->nama,
+                'email' => ($request->email) ? $request->email : NULL,
+                'phone' => ($request->phone) ? $request->phone : NULL,
+                'biaya' => ($request->biaya) ? $request->biaya : NULL,
+            ]);
+            if ($data) {
+                Session::flash('success','Data berhasil masukan');
+                return redirect()->back();
+            }
+        }
     }
 
     /**
@@ -68,7 +98,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Order::find($id);
+        $data->status = $request->status;
+        $data->save();
+        if ($data) {
+            Session::flash('success','Data berhasil masukan');
+            return redirect()->back();
+        }
     }
 
     /**
