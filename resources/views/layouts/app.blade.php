@@ -63,6 +63,15 @@
                 </div>
                 
               </div>
+              <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#nav-3" class="list-group-item d-flex justify-content-between"><i class="bi-asterisk me-3"></i>Portofolio<i class="bi-chevron-down ms-auto"></i></a>
+  <div class="bg-lab-2 collapse {{ ($header == 'Portofolio' || $header == 'Tambah Portofolio' || $header == 'Edit Portofolio') ? 'show' : '' }}" id="nav-3" style="">
+
+                <div class="list-group list-group-flush drop-admin">
+                  <a href="{{ route('portofolio.index') }}" class="list-group-item list-group-item-action {{ ($header == 'Portofolio' || $header == 'Edit Portofolio' ) ? 'list-active' : '' }}"><i class="bi-dot me-3"></i>Table Portofolio</a>
+                  <a href="{{ route('portofolio.create') }}" class="list-group-item list-group-item-action {{ ($header == 'Tambah Portofolio') ? 'list-active' : '' }}"><i class="bi-dot me-3"></i>Tambah Portofolio</a>
+                </div>
+                
+              </div>
   <a href="{{ route('contact.index') }}"  class="list-group-item list-group-item-action {{ ($header == 'Contact') ? 'list-active' : '' }}"><i class="bi-envelope-open-fill me-3"></i>Contact List</a>
   <a href="{{ route('profile.show') }}" class="list-group-item list-group-item-action {{ ($header == 'Profile') ? 'list-active' : '' }}"><i class="bi-gear-fill me-3"></i>Account</a>
 </div>

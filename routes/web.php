@@ -6,6 +6,7 @@ use App\Http\Controllers\ReklameController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,13 @@ Route::GROUP(['prefix' => 'admin',  'middleware' => ['auth:sanctum',config('jets
     Route::GET('/brand/edit/{id}',[BrandController::class,'edit'])->name('brand.edit');
     Route::POST('/brand/edit/update/{id}',[BrandController::class,'update'])->name('brand.update');
     Route::GET('/brand/edit/delete/{id}',[BrandController::class,'destroy'])->name('brand.delete');
+    
+    Route::GET('/portofolio',[PortofolioController::class,'index'])->name('portofolio.index');
+    Route::GET('/portofolio/create',[PortofolioController::class,'create'])->name('portofolio.create');
+    Route::POST('/portofolio/create/store',[PortofolioController::class,'store'])->name('portofolio.store');
+    Route::GET('/portofolio/edit/{id}',[PortofolioController::class,'edit'])->name('portofolio.edit');
+    Route::POST('/portofolio/edit/update/{id}',[PortofolioController::class,'update'])->name('portofolio.update');
+    Route::GET('/portofolio/edit/delete/{id}',[PortofolioController::class,'destroy'])->name('portofolio.delete');
 
 });
 

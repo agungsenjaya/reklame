@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 13, 2022 at 08:49 AM
+-- Generation Time: Jun 15, 2022 at 05:50 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -117,7 +117,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (127, '2022_05_22_085850_create_reklames_table', 1),
 (128, '2022_05_22_090130_create_contacts_table', 1),
 (130, '2022_05_22_090500_create_brands_table', 1),
-(131, '2022_05_22_090147_create_orders_table', 2);
+(131, '2022_05_22_090147_create_orders_table', 2),
+(133, '2022_06_15_034635_create_portofolios_table', 3);
 
 -- --------------------------------------------------------
 
@@ -182,6 +183,31 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `portofolios`
+--
+
+CREATE TABLE `portofolios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `portofolios`
+--
+
+INSERT INTO `portofolios` (`id`, `user_id`, `judul`, `foto`, `content`, `slug`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'pemasangan reklame daerah cisaat', 'img/portofolio/16552695271 - copy.png', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.<p style=\"text-align: center; \"><img style=\"width: 50%;\" data-filename=\"1 - Copy.png\" src=\"/img/portofolio/16552695270.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.</p><p style=\"text-align: center;\"><img style=\"width: 600px;\" data-filename=\"1 - Copy (2).png\" src=\"/img/portofolio/16552695271.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.<br></p></p>\n', 'pemasangan-reklame-daerah-cisaat', NULL, '2022-06-14 22:05:27', '2022-06-14 22:05:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reklames`
 --
 
@@ -233,7 +259,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('qt9UsHmU07Gi30ofYmXQnRyxquA0GycFI803uSSC', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMzlPTGJnVFhHWGZDaGMwbVdPZXFpenhSbGdRbm5HUFNQekRzT3B4TCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHVISGp2U3lRMDhOTXJHZ051UmU3bk9zNGNtUmlDbDQ3eE5GOUtmN3JubS5nSk5GY2dFeGZXIjt9', 1655110091);
+('0r7stFltgoaNh8TdSODFOZYMImUrHmd40XHmqgTZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUmJHbUt5cmVvREEwQjVrbnFLZ21RRlZWNHZSbFRVa2FtQ0hyZDlZMiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9wb3J0b2ZvbGlvL2VkaXQvMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkdUhIanZTeVEwOE5NckdnTnVSZTduT3M0Y21SaUNsNDd4TkY5S2Y3cm5tLmdKTkZjZ0V4ZlciO30=', 1655271963);
 
 -- --------------------------------------------------------
 
@@ -314,6 +340,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `portofolios`
+--
+ALTER TABLE `portofolios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `reklames`
 --
 ALTER TABLE `reklames`
@@ -360,7 +392,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -373,6 +405,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `portofolios`
+--
+ALTER TABLE `portofolios`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reklames`
