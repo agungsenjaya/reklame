@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reklame;
 use App\Models\Contact;
 use App\Models\Brand;
+use App\Models\Portofolio;
 use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Image,Storage, Mail;
 
 class ClientController extends Controller
@@ -72,6 +73,15 @@ class ClientController extends Controller
 
     public function brand() {
         return view('client.brand')->with('brand', Brand::all());
+    }
+
+    public function portofolio() {
+        return view('client.portofolio')->with('portofolio', Portofolio::all());
+    }
+    
+    public function portofolio_view($id) {
+        $data = Portofolio::where('slug', $id)->first();
+        return view('client.portofolio_view',compact('data'))->with('portofolio', Portofolio::all());
     }
 
 }

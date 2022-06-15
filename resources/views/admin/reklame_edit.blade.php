@@ -129,7 +129,7 @@ $arah = ['utara','timur laut','timur','tenggara','selatan','barat daya','barat',
   </div>
   <div class="mb-3">
   <label class="form-label">Keterangan Reklame<span class="text-danger ms-1">*</span></label>
-  <textarea class="form-control" rows="5" name="content" required>{{ $data->content }}</textarea>
+  <textarea class="form-control" rows="5" name="content" required>{!! $data->content !!}</textarea>
   </div>
         </div>
     </div>

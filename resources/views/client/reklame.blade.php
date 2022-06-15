@@ -55,7 +55,7 @@
                 </div>
                 <!-- <hr> -->
                 <ul class="list-group list-group-flush list">
-                    @foreach($reklame as $rek)
+                    @foreach($reklame->reverse() as $rek)
                     @php
                     $alamat = json_decode($rek->alamat);
                     $ukuran = json_decode($rek->ukuran);
@@ -67,7 +67,7 @@
                           <div class="col-md-4">
                               <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                   <!-- <img src="{{ asset($foto[0]->url) }}" alt="" width="100%" class="rounded mb-3 mb-sm-0"> -->
-                                  <img src="{{ asset('img/sample-1.png') }}" alt="" width="100%" class="rounded mb-3 mb-sm-0"/>
+                                  <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
                                 </a>
                           </div>
                           <div class="col-md">
@@ -132,7 +132,7 @@
         </div>
     </div>
     <div class="card-footer d-flex justify-content-end border-top">
-    <a target="_blank" href="https://wa.me/6285759794605?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$rek->slug) }}" class="btn btn-primary">Beli Sekarang</a>
+    <a target="_blank" href="https://wa.me/6281288874567?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$rek->slug) }}" class="btn btn-primary">Beli Sekarang</a>
     <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}" class="btn btn-outline-primary ms-3">Lihat Detail</a>
 </div>
                               
@@ -186,4 +186,18 @@
         // $('.pagination > li > a').addClass('page-link');
 
 </script>
+@endsection
+@section('title')
+Reklame
+@endsection
+@section('meta')
+<meta itemprop="name" content="Reklame | {{ config('app.name') }}">
+<meta itemprop="description" content="Pasang reklame makin mudah bersama kami, sesuai dengan anggaran anda">
+
+<meta name="twitter:title" content="Reklame | {{ config('app.name') }}">
+<meta name="twitter:description" content="Pasang reklame makin mudah bersama kami, sesuai dengan anggaran anda">
+
+<meta property="og:title" content="Reklame | {{ config('app.name') }}">
+<meta property="og:description" content="Pasang reklame makin mudah bersama kami, sesuai dengan anggaran anda">
+<meta property="og:url" content="{{ route('reklame') }}">
 @endsection

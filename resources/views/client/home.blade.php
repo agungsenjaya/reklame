@@ -78,10 +78,10 @@
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                 <!-- <img src="{{ asset($fotoo[0]->url) }}" class="card-img-top rounded" alt="..." /> -->
-                                <img src="{{ asset('img/sample-1.png') }}" class="card-img-top rounded" alt="..." />
+                                <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ substr($rek->judul,0, 15) }}</h5>
+                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</h5>
                                 <p class="font-12  text-secondary">{{ $alam->alamat }}</p>
                                 <hr />
                                 <div class="row">
@@ -259,23 +259,17 @@
                 <p class="text-secondary">Sudah banyak perusahaan yang menggunakan jasa kami</p>
             </div>
             <div class="row text-center">
-                <div class="col-md-4 mb-4 col-6">
+                <div class="col-md-3 mb-4 col-6 bg-white">
                     <img src="{{ $brand[0]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
                 </div>
-                <div class="col-md-4 mb-4 col-6 border-start">
+                <div class="col-md-3 mb-4 col-6 border-start bg-white">
                     <img src="{{ $brand[1]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
                 </div>
-                <div class="col-md-4 mb-4 col-6 border-start">
+                <div class="col-md-3 mb-4 col-6 border-start bg-white">
                     <img src="{{ $brand[2]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
                 </div>
-                <div class="col-md-4 mb-4 col-6">
+                <div class="col-md-3 mb-4 col-6 bg-white">
                     <img src="{{ $brand[3]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
-                </div>
-                <div class="col-md-4 mb-4 col-6 border-start">
-                    <img src="{{ $brand[4]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
-                </div>
-                <div class="col-md-4 mb-4 col-6 border-start">
-                    <img src="{{ $brand[5]->foto }}" alt="" width="80%" class="gray-1 opacity-75" />
                 </div>
             </div>
         </div>
@@ -348,4 +342,22 @@
     });
 
 </script>
+@endsection
+@section('title')
+Beranda
+@endsection
+@section('meta')
+<meta itemprop="name" content="Beranda | {{ config('app.name') }}">
+<meta itemprop="description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
+<meta itemprop="image" content="htps://dummyimage.com/600x400">
+
+<meta name="twitter:title" content="Beranda | {{ config('app.name') }}">
+<meta name="twitter:description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
+<meta name="twitter:image:src" content="htps://dummyimage.com/600x400">
+<meta name=twitter:card content="summary_large_image">
+
+<meta property="og:title" content="Beranda | {{ config('app.name') }}">
+<meta property="og:image" content="htps://dummyimage.com/600x400">
+<meta property="og:description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
+<meta property="og:url" content="{{ route('home') }}">
 @endsection

@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <label for="" class="form-label">Deskripsi<span class="text-danger ms-1">*</span></label>
                             <textarea id="summer" name="content" required>
-                                {{ $data->content }}
+                                {!! $data->content !!}
                             </textarea>
                         </div>
                         <div>
@@ -53,7 +53,14 @@
           ['table', ['table']],
           ['insert', ['link', 'picture', 'video']],
           ['view', ['fullscreen', 'codeview', 'help']]
-        ]
+        ],
+        callbacks: {
+          onPaste: function (e) {
+                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                e.preventDefault();
+                document.execCommand('insertText', false, bufferText);
+            }
+          }
       });
 </script>
 @endsection

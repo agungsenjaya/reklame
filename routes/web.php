@@ -30,6 +30,8 @@ Route::GET('about',[ClientController::class,'about'])->name('about');
 Route::GET('contact',[ClientController::class,'contact'])->name('contact');
 Route::POST('contact/send',[ClientController::class,'contact_send'])->name('contact.send');
 Route::GET('client',[ClientController::class,'brand'])->name('client');
+Route::GET('portofolio',[ClientController::class,'portofolio'])->name('portofolio');
+Route::GET('portofolio/view/{id}',[ClientController::class,'portofolio_view'])->name('portofolio.view');
 
 
 Route::GROUP(['prefix' => 'admin',  'middleware' => ['auth:sanctum',config('jetstream.auth_session'),'verified','cors']], function(){

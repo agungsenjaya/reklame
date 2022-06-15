@@ -50,90 +50,25 @@ lain-lain.</p>
             </div>
         </div>
     </section>
-    <div class="container">
-      <hr class="m-0">
-    </div>
-    <section class="space-m bg-light">
-        <div class="container">
-          <div class="row">
-          <div class="col-md-6 offset-md-3 mb-5 text-center">
-            <h3 class="m-0">Tim Profesional</h3>
-            <p class="mb-0 text-secondary">Cv. Media Adhi Persada, Dengan orang-orang yang Luar Biasa
-Kami berusaha memberikan layanan yang terbaik.</p>
-          </div>
-          </div>
-
-            <div class="row row-cols-2 row-cols-md-3 g-4 text-center">
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/female.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Dety Rahman</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">Komander</div>
-    </div>
-  </div>
-  </div>
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/male.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Adi Sumarna</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">Direktur</div>
-    </div>
-  </div>
-  </div>
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/male.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Aceng Baehaki</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">Project Manager</div>
-    </div>
-  </div>
-  </div>
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/male.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Ade Indra</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">Administrasi Umum</div>
-    </div>
-  </div>
-  </div>
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/male.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Encep Ramli</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">Tax & Permith</div>
-    </div>
-  </div>
-  </div>
-  <div class="col">
-  <div class="card bg-transparent">
-    <div class="text-center">
-      <img src="{{ asset('img/male.jpg') }}" class="" width="50%" alt="...">
-    </div>
-    <div class="card-body">
-      <h5 class="card-title title-2">Samsul Muin</h5>
-      <div class="badge alert-primary rounded-pill px-3 py-2">SPV Placement</div>
-    </div>
-  </div>
-  </div>
-  
 </div>
+@endsection
+@section('title')
+Tentang Kami
+@endsection
+@section('meta')
+<meta itemprop="name" content="Tentang Kami | {{ config('app.name') }}">
+<meta itemprop="description" content="Perusahaan kami bergerak sejak tahun 2010, seiring 
+berjalannya waktu perusahaan kami berganti dengan nama 
+cv. media adhi persada">
 
-        </div>
-    </section>
-</div>
+<meta name="twitter:title" content="Tentang Kami | {{ config('app.name') }}">
+<meta name="twitter:description" content="Perusahaan kami bergerak sejak tahun 2010, seiring 
+berjalannya waktu perusahaan kami berganti dengan nama 
+cv. media adhi persada">
+
+<meta property="og:title" content="Tentang Kami | {{ config('app.name') }}">
+<meta property="og:description" content="Perusahaan kami bergerak sejak tahun 2010, seiring 
+berjalannya waktu perusahaan kami berganti dengan nama 
+cv. media adhi persada">
+<meta property="og:url" content="{{ route('about') }}">
 @endsection

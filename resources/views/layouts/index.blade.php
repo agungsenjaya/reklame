@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta property="og:type" content="advertising_sukabumi.reklame_sukabumi.daerah_sukabumi.jasa_advertising_sukabumi.media_adhi_persada" />
+        @yield('meta')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title') | {{ config('app.name') }}</title>
 
         <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" type="image/x-icon">
 
@@ -27,7 +29,7 @@
         {!! ReCaptcha::htmlScriptTagJsApi() !!}
     </head>
     <body class="antialiased">
-        <div class="fixed-bottom text-end d-none">
+        <div class="fixed-bottom text-end">
             <div class="m-3">
                 <a href="https://api.whatsapp.com/send?phone=6281288874567&text=Halo%20saya%2C%20ingin%20menanyakan%20lebih%20lanjut%20tentang%20beriklan" target="_blank">
                     <img src="{{ asset('icon/whatsapp.svg') }}" alt="" width="50">

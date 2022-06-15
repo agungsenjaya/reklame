@@ -138,3 +138,17 @@
 };
 </script>
 @endsection
+@section('title')
+Hubungi Kami
+@endsection
+@section('meta')
+<meta itemprop="name" content="Hubungi Kami | {{ config('app.name') }}">
+<meta itemprop="description" content="Jika Anda memiliki pertanyaan atau saran jangan ragu untuk menghubungi kami">
+
+<meta name="twitter:title" content="Hubungi Kami | {{ config('app.name') }}">
+<meta name="twitter:description" content="Jika Anda memiliki pertanyaan atau saran jangan ragu untuk menghubungi kami">
+
+<meta property="og:title" content="Hubungi Kami | {{ config('app.name') }}">
+<meta property="og:description" content="Jika Anda memiliki pertanyaan atau saran jangan ragu untuk menghubungi kami">
+<meta property="og:url" content="{{ route('contact') }}">
+@endsection

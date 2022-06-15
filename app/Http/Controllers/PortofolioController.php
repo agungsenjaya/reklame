@@ -51,7 +51,7 @@ class PortofolioController extends Controller
 
             $detail=$request->input('content');
             $dom = new \DomDocument();
-            $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+            @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
             $images = $dom->getElementsByTagName('img');
             foreach($images as $k => $img){
                 $data = $img->getAttribute('src');
@@ -134,30 +134,32 @@ class PortofolioController extends Controller
 
             $detail=$request->input('content');
             $dom = new \DomDocument();
-            $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+            // libxml_use_internal_errors(true);
+            @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $images = $dom->getElementsByTagName('img');
             foreach($images as $k => $img){
                 $data = $img->getAttribute('src');
                 list($type, $data) = explode(';', $data);
-                list(, $data)      = explode(',', $data);
-                $data = base64_decode($data);
-                $image_name= "/img/portofolio/" . time().$k.'.png';
-                $path = public_path() . $image_name;
-                file_put_contents($path, $data);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_name);
+                list(, $data) = explode(',', $data);
+                dd($img->getAttribute('src'));
+                // $data = base64_decode($data);
+                // $image_name= "/img/portofolio/" . time().$k.'.png';
+                // $path = public_path() . $image_name;
+                // file_put_contents($path, $data);
+                // $img->removeAttribute('src');
+                // $img->setAttribute('src', $image_name);
             }
-            $detail = $dom->saveHTML();
+            // $detail = $dom->saveHTML();
 
-            $data->judul = strtolower($request->judul);
-            $data->content = $detail;
-            $data->slug = Str::slug(strtolower($request->judul));
-            $data->save();
+            // $data->judul = strtolower($request->judul);
+            // $data->content = $detail;
+            // $data->slug = Str::slug(strtolower($request->judul));
+            // $data->save();
 
-            if ($data) {
-                Session::flash('success','Data berhasil diupdate kedalam database');
-                return redirect()->route('portofolio.index');
-            }
+            // if ($data) {
+            //     Session::flash('success','Data berhasil diupdate kedalam database');
+            //     return redirect()->route('portofolio.index');
+            // }
         }
     }
 

@@ -24,6 +24,9 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{{ route('client') }}">Klien Kami</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ route('portofolio') }}">Portofolio</a>
+        </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
         <li class="nav-item">

@@ -23,7 +23,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                     <div class="swiper-slide">
                                         <a href="javascript:void(0)" data-fancybox="foto" data-src="{{ asset($fo->url) }}" data-caption="{{ ucfirst($data->judul) }}">
                                             <!-- <img src="{{ asset($fo->url) }}" width="100%" class="rounded" /> -->
-                                            <img src="{{ asset('img/sample-1.png') }}" class="rounded" alt="..." width="100%" />
+                                            <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" />
                                         </a>
                                     </div>
                                     @endforeach
@@ -35,7 +35,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                     <div class="swiper-slide">
                                         <a href="javascript:void(0)">
                                             <!-- <img src="{{ asset($fo->url) }}" width="100%" class="rounded" /> -->
-                                            <img src="{{ asset('img/sample-1.png') }}" class="rounded" alt="..." width="100%" />
+                                            <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" />
                                         </a>
                                     </div>
                                     @endforeach
@@ -46,6 +46,12 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                 </div>
                 <div class="col-md-7">
                     <h4 class="title-2 fw-semibold text-capitalize">{{ $data->judul }}</h4>
+                    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <a class="a2a_button_copy_link"></a>
+                    <a class="a2a_button_facebook"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_whatsapp"></a>
+                    </div>
                     <hr />
                     <div class="row mb-md-0 mb-3">
                         <div class="col-md-8">
@@ -53,7 +59,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                         </div>
                         <div class="col-md-4">
                             <div>
-                                <a href="https://wa.me/6285759794605?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$data->slug) }}" class="btn btn-lg w-100 rounded btn-primary" target="_blank">Beli Sekarang</a>
+                                <a href="https://wa.me/6281288874567?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$data->slug) }}" class="btn btn-lg w-100 rounded btn-primary" target="_blank">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -134,11 +140,11 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                 <!-- <img src="{{ asset($fotoo[0]->url) }}" class="card-img-top rounded" alt="..." /> -->
-                                <!-- <img src="https://dummyimage.com/600" class="card-img-top rounded" alt="..." /> -->
-                                <img src="{{ asset('img/sample-1.png') }}" class="card-img-top rounded" alt="..." />
+                                <!-- <img src="{{ asset('img/sample-1.png') }}" class="card-img-top rounded" alt="..." /> -->
+                                <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ substr($rek->judul,0, 15) }}</h5>
+                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</h5>
                                 <p class="font-12  text-secondary">{{ $alam->alamat }}</p>
                                 <hr />
                                 <div class="row">
@@ -206,6 +212,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.min.js" integrity="sha512-BalAj1QDxNKnkwuDTiYL62iR/evB9429/SoJVTK9344Sc1VJtwpC4OFxKNu3vZMtSpbLEre3oCtr0maV3CddRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiYWd1bmdzZW5qYXlhIiwiYSI6ImNqbGVnMjhtYTBpOXEza3F6NzI4M2RmbHAifQ.1WV_fgbmd1eMI4C444BDqQ';
 const coordinates = document.getElementById('coordinates');
@@ -273,5 +280,26 @@ Fancybox.bind("[data-fancybox]", {
 	// 		innerWrapperSelector: '.filter__in'
 	// 	});
 
+    var a2a_config = a2a_config || {};
+    a2a_config.icon_color = "#023e8a";
+
 </script>
+@endsection
+@section('title')
+{{ ucfirst($data->judul) }}
+@endsection
+@section('meta')
+<meta itemprop="name" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
+<meta itemprop="description" content="{{ substr($data->content, 0 , 100) }}">
+<meta itemprop="image" content="{{ asset($data->foto) }}">
+
+<meta name="twitter:title" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
+<meta name="twitter:description" content="{{ substr($data->content, 0 , 100) }}">
+<meta name="twitter:image:src" content="{{ asset($data->foto) }}">
+<meta name=twitter:card content="summary_large_image">
+
+<meta property="og:title" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
+<meta property="og:image" content="{{ asset($data->foto) }}">
+<meta property="og:description" content="{{ substr($data->content, 0 , 100) }}">
+<meta property="og:url" content="{{ route('reklame.view',['id' => $data -> slug]) }}">
 @endsection

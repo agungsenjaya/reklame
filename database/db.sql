@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 15, 2022 at 05:50 AM
+-- Generation Time: Jun 15, 2022 at 12:20 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -42,12 +42,10 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `user_id`, `judul`, `foto`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 1, 'biznet networks', 'img/brand/16548659191.png', 'biznet-networks', '2022-06-10 05:58:39', '2022-06-10 05:58:39'),
-(2, 1, 'gojek indonesia', 'img/brand/16548659322.png', 'gojek-indonesia', '2022-06-10 05:58:52', '2022-06-10 05:58:52'),
-(3, 1, 'softex indonesia', 'img/brand/16548659503.png', 'softex-indonesia', '2022-06-10 05:59:10', '2022-06-10 05:59:10'),
-(4, 1, 'pt gudang garam tbk', 'img/brand/16548659684.png', 'pt-gudang-garam-tbk', '2022-06-10 05:59:28', '2022-06-10 06:00:05'),
-(5, 1, 'pt surya madistrindo', 'img/brand/16548659925.png', 'pt-surya-madistrindo', '2022-06-10 05:59:52', '2022-06-10 05:59:52'),
-(6, 1, 'aqua', 'img/brand/16548660446.png', 'aqua', '2022-06-10 06:00:44', '2022-06-10 06:00:44');
+(1, 1, 'biznet networks', 'img/brand/16552935331.jpg', 'biznet-networks', '2022-06-15 04:45:33', '2022-06-15 04:45:33'),
+(2, 1, 'gojek indonesia', 'img/brand/16552935502.jpg', 'gojek-indonesia', '2022-06-15 04:45:50', '2022-06-15 04:45:50'),
+(3, 1, 'pt gudang garam tbk', 'img/brand/16552935713.jpg', 'pt-gudang-garam-tbk', '2022-06-15 04:46:11', '2022-06-15 04:46:11'),
+(4, 1, 'pt surya madistrindo', 'img/brand/16552935924.jpg', 'pt-surya-madistrindo', '2022-06-15 04:46:32', '2022-06-15 04:46:32');
 
 -- --------------------------------------------------------
 
@@ -203,7 +201,9 @@ CREATE TABLE `portofolios` (
 --
 
 INSERT INTO `portofolios` (`id`, `user_id`, `judul`, `foto`, `content`, `slug`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'pemasangan reklame daerah cisaat', 'img/portofolio/16552695271 - copy.png', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.<p style=\"text-align: center; \"><img style=\"width: 50%;\" data-filename=\"1 - Copy.png\" src=\"/img/portofolio/16552695270.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.</p><p style=\"text-align: center;\"><img style=\"width: 600px;\" data-filename=\"1 - Copy (2).png\" src=\"/img/portofolio/16552695271.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quis autem modi, velit nulla id dolorem quae, debitis dicta laborum odio ratione! Quos accusantium pariatur eius ab recusandae, fuga natus.<br></p></p>\n', 'pemasangan-reklame-daerah-cisaat', NULL, '2022-06-14 22:05:27', '2022-06-14 22:05:27');
+(1, 1, 'hasil pemasangan reklame satu', 'img/portofolio/16552942531.png', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.<p style=\"text-align: center; \"><img style=\"width: 600px;\" data-filename=\"1.png\" src=\"/img/portofolio/16552942530.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.</p><p style=\"text-align: center; \"><img style=\"width: 600px;\" data-filename=\"1.png\" src=\"/img/portofolio/16552942531.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.</p></p>\n', 'hasil-pemasangan-reklame-satu', NULL, '2022-06-15 04:57:33', '2022-06-15 04:57:33'),
+(2, 1, 'hasil pemasangan reklame dua', 'img/portofolio/16552943121.png', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.<p style=\"text-align: center; \"><img style=\"width: 600px;\" data-filename=\"1.png\" src=\"/img/portofolio/16552943120.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.</p></p>\n', 'hasil-pemasangan-reklame-dua', NULL, '2022-06-15 04:58:32', '2022-06-15 04:58:32'),
+(3, 1, 'hasil pemasangan reklame tiga', 'img/portofolio/16552943461.png', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.<p style=\"text-align: center; \"><img style=\"width: 600px;\" data-filename=\"1.png\" src=\"/img/portofolio/16552943460.png\"></p><p style=\"text-align: left;\">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque corrupti numquam at. Officiis quidem repudiandae aut beatae qui explicabo, sunt sint voluptatum esse velit libero perspiciatis. Blanditiis, cum! Nostrum.</p></p>\n', 'hasil-pemasangan-reklame-tiga', NULL, '2022-06-15 04:59:06', '2022-06-15 04:59:06');
 
 -- --------------------------------------------------------
 
@@ -259,7 +259,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0r7stFltgoaNh8TdSODFOZYMImUrHmd40XHmqgTZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUmJHbUt5cmVvREEwQjVrbnFLZ21RRlZWNHZSbFRVa2FtQ0hyZDlZMiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9wb3J0b2ZvbGlvL2VkaXQvMSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkdUhIanZTeVEwOE5NckdnTnVSZTduT3M0Y21SaUNsNDd4TkY5S2Y3cm5tLmdKTkZjZ0V4ZlciO30=', 1655271963);
+('0r7stFltgoaNh8TdSODFOZYMImUrHmd40XHmqgTZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUmJHbUt5cmVvREEwQjVrbnFLZ21RRlZWNHZSbFRVa2FtQ0hyZDlZMiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjM6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9yZWtsYW1lL3ZpZXcvcmVrbGFtZS1kYWVyYWgta290YS1zdWthYnVtaSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkdUhIanZTeVEwOE5NckdnTnVSZTduT3M0Y21SaUNsNDd4TkY5S2Y3cm5tLmdKTkZjZ0V4ZlciO30=', 1655295594);
 
 -- --------------------------------------------------------
 
@@ -374,7 +374,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -410,13 +410,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `portofolios`
 --
 ALTER TABLE `portofolios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reklames`
 --
 ALTER TABLE `reklames`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

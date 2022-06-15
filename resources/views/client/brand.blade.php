@@ -64,3 +64,17 @@
         <img src="{{ asset('img/line-1.png') }}" alt="" width="100" />
     </div>
 @endsection
+@section('title')
+Klien Kami
+@endsection
+@section('meta')
+<meta itemprop="name" content="Klien Kami | {{ config('app.name') }}">
+<meta itemprop="description" content="Sudah banyak perusahaan yang menggunakan jasa kami">
+
+<meta name="twitter:title" content="Klien Kami | {{ config('app.name') }}">
+<meta name="twitter:description" content="Sudah banyak perusahaan yang menggunakan jasa kami">
+
+<meta property="og:title" content="Klien Kami | {{ config('app.name') }}">
+<meta property="og:description" content="Sudah banyak perusahaan yang menggunakan jasa kami">
+<meta property="og:url" content="{{ route('client') }}">
+@endsection
