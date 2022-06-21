@@ -101,7 +101,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       @if($order)
-      <form action="{{ route('order.update',['id' => $order -> id]) }}" method="POST">
+      <form date-id="{{ $order->id }}" action="{{ route('order.update',['id' => $order -> id]) }}" method="POST">
         @else
         <form action="{{ route('order.store') }}" method="POST">
       @endif
@@ -255,6 +255,15 @@
             }
         });
         });
+
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
 
 </script>
 @endsection

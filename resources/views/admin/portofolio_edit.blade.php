@@ -7,7 +7,7 @@
             <nav aria-label="breadcrumb" class="d-flex justify-content-end">
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item"><a href="{{ route('portofolio.index') }}">Portofolio</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Tambah Portofolio</li>
+      <li class="breadcrumb-item active" aria-current="page">Edit Portofolio</li>
     </ol>
   </nav>
             </div>
@@ -20,7 +20,7 @@
                                 <input type="text" class="form-control" name="judul" required value="{{ $data->judul }}">
                         </div>
                         <div class="mb-3 col">
-                                <label class="form-label">Foto Portofolio<span class="text-danger ms-1">*</span></label>
+                                <label class="form-label">Foto Portofolio<span class="text-secondary fw-normal ms-1">(Optional)</span></label>
                                 <input type="file" class="form-control" name="foto">
                         </div>
                         </div>
@@ -62,6 +62,15 @@
             }
           }
       });
+
+      const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
 </script>
 @endsection
     </x-app-layout>

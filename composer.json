@@ -10,6 +10,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "html2text/html2text": "^4.3",
+        "intervention/image": "^2.7",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.11",
@@ -41,7 +42,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "App/Helpers/Helper.php"
+            "app/Helpers/Helper.php"
      
         ]
     },

@@ -135,17 +135,21 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
 
             <div class="swiper slider-3">
                 <div class="swiper-wrapper">
-                    @foreach($reklame->reverse()->take(6) as $rek) @php $alam = json_decode($rek->alamat); $uku = json_decode($rek->ukuran); $fotoo = json_decode($rek->foto); @endphp
+                @foreach($reklame->reverse()->take(6) as $rek) @php $alam = json_decode($rek->alamat); $uku = json_decode($rek->ukuran); $fotoo = json_decode($rek->foto); @endphp
                     <div class="swiper-slide">
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                 <!-- <img src="{{ asset($fotoo[0]->url) }}" class="card-img-top rounded" alt="..." /> -->
-                                <!-- <img src="{{ asset('img/sample-1.png') }}" class="card-img-top rounded" alt="..." /> -->
                                 <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</h5>
-                                <p class="font-12  text-secondary">{{ $alam->alamat }}</p>
+                                <div style="height:50px" class="d-none d-md-block">
+                                    <p class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</p>
+                                </div>
+                                <div class="d-md-none d-block">
+                                    <p class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</p>
+                                </div>
+                                <p class="font-12  text-secondary">{{ substr($alam->alamat,0,100) }}..</p>
                                 <hr />
                                 <div class="row">
                                     <div class="col-6 mb-2">

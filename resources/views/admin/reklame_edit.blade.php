@@ -78,14 +78,14 @@ $arah = ['utara','timur laut','timur','tenggara','selatan','barat daya','barat',
       <label class="form-label">Panjang Reklame<span class="text-danger ms-1">*</span></label>
       <div class="input-group">
         <input class="form-control num" name="panjang" value="{{ $ukuran->panjang }}" required>
-        <span class="input-group-text">Pixel</span>
+        <span class="input-group-text">Meter</span>
     </div>
     </div>
     <div class="col">
       <label class="form-label">Tinggi Reklame<span class="text-danger ms-1">*</span></label>
       <div class="input-group">
         <input class="form-control num" name="tinggi" value="{{ $ukuran->tinggi }}" required>
-        <span class="input-group-text">Pixel</span>
+        <span class="input-group-text">Meter</span>
     </div>
   </div>
   </div>
@@ -309,6 +309,15 @@ map.addControl(
 
         var gas = <?php print json_encode($foto) ?>;
         console.log(gas);
+
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
 
 </script>
 @endsection

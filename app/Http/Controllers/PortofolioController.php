@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Portofolio;
-use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Image,Storage;
+use DB,Session,Uuid,Validator,Auth,Hash,Str,stdClass,Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PortofolioController extends Controller
 {
@@ -99,6 +100,7 @@ class PortofolioController extends Controller
      */
     public function edit($id)
     {
+        // dd(str_replace('public','',public_path()));
         $data = Portofolio::find($id);
         return view('admin.portofolio_edit',compact('data'));
     }
@@ -137,29 +139,37 @@ class PortofolioController extends Controller
             // libxml_use_internal_errors(true);
             @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $images = $dom->getElementsByTagName('img');
-            foreach($images as $k => $img){
-                $data = $img->getAttribute('src');
-                list($type, $data) = explode(';', $data);
-                list(, $data) = explode(',', $data);
-                dd($img->getAttribute('src'));
-                // $data = base64_decode($data);
-                // $image_name= "/img/portofolio/" . time().$k.'.png';
-                // $path = public_path() . $image_name;
-                // file_put_contents($path, $data);
-                // $img->removeAttribute('src');
-                // $img->setAttribute('src', $image_name);
+
+            foreach($images as $img){
+                $src = $img->getAttribute('src');
+                if(preg_match('/data:image/', $src)){
+                    // get the mimetype
+                    preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+                    $mimetype = $groups['mime'];
+    
+                    $filename = uniqid();
+                    $filepath = public_path('/img/portofolio/$filename.$mimetype');
+    
+                    $image = Image::make($src)
+                      ->encode($mimetype, 50)  
+                      ->save($filepath);
+    
+                    $new_src = asset($filepath);
+                    $img->removeAttribute('src');
+                    $img->setAttribute('src', $new_src);
+                }
             }
-            // $detail = $dom->saveHTML();
+            $detail = $dom->saveHTML();
 
-            // $data->judul = strtolower($request->judul);
-            // $data->content = $detail;
-            // $data->slug = Str::slug(strtolower($request->judul));
-            // $data->save();
+            $data->judul = strtolower($request->judul);
+            $data->content = $detail;
+            $data->slug = Str::slug(strtolower($request->judul));
+            $data->save();
 
-            // if ($data) {
-            //     Session::flash('success','Data berhasil diupdate kedalam database');
-            //     return redirect()->route('portofolio.index');
-            // }
+            if ($data) {
+                Session::flash('success','Data berhasil diupdate kedalam database');
+                return redirect()->route('portofolio.index');
+            }
         }
     }
 

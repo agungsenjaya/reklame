@@ -4,7 +4,7 @@
     <section class="space-m">
         <div class="container" id="reklame">
             <div class="row">
-                <div class="col-md-3 d-none d-md-block">
+                <div class="col-md-3 d-none">
                 <!-- <h4 class="mb-0">Filter Reklame</h4> -->
                 <!-- <hr> -->
                 <div id="filter">

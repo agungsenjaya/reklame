@@ -30,4 +30,16 @@
                     </form>
             </div>
 </div>
+@section('js')
+<script>
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
+</script>
+@endsection
     </x-app-layout>

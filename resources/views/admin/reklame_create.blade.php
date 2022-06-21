@@ -60,14 +60,14 @@
       <label class="form-label">Panjang Reklame<span class="text-danger ms-1">*</span></label>
       <div class="input-group">
         <input type="text" class="form-control num" name="panjang" required>
-        <span class="input-group-text">Pixel</span>
+        <span class="input-group-text">Meter</span>
     </div>
     </div>
     <div class="col">
       <label class="form-label">Tinggi Reklame<span class="text-danger ms-1">*</span></label>
       <div class="input-group">
         <input type="text" class="form-control num" name="tinggi" required>
-        <span class="input-group-text">Pixel</span>
+        <span class="input-group-text">Meter</span>
     </div>
   </div>
   </div>
@@ -287,6 +287,17 @@ map.addControl(
         Fancybox.bind("[data-fancybox]", {
           // Your options go here
         });
+
+
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
+
 </script>
 @endsection
 </x-app-layout>

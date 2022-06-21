@@ -28,8 +28,8 @@
       </td>
       <td>{{ $port->created_at->format('d M Y') }}</td>
       <td>
-        <!-- <a href="{{ route('portofolio.edit',['id' => $port -> id]) }}" class="btn btn-sm btn-primary rounded w-100"> -->
-        <a href="javascript:void(0)" class="btn btn-sm btn-primary rounded w-100">
+        <a href="{{ route('portofolio.edit',['id' => $port -> id]) }}" class="btn btn-sm btn-primary rounded w-100">
+        <!-- <a href="javascript:void(0)" class="btn btn-sm btn-primary rounded w-100"> -->
           Edit
         </a>
       </td>

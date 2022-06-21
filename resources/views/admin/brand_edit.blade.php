@@ -20,7 +20,7 @@
                                 <input type="text" class="form-control" name="judul" required value="{{ $data->judul }}">
                         </div>
                         <div class="mb-3 col">
-                                <label class="form-label">Foto Brand</label>
+                                <label class="form-label">Foto Brand<span class="text-secondary fw-normal ms-1">(Optional)</span></label>
                                 <input type="file" class="form-control" name="foto">
                         </div>
                         </div>
@@ -30,4 +30,16 @@
                     </form>
             </div>
 </div>
+@section('js')
+<script>
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
+</script>
+@endsection
     </x-app-layout>

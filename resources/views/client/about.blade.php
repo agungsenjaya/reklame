@@ -17,7 +17,14 @@ lain-lain.</p>
                 </div>
                 </div>
                 <div class="col-md-6 order-1 order-md-2">
-                    <img src="{{ asset('img/about-1.png') }}" alt="" width="100%" class="rounded">
+                    <div class="position-relative">
+                        <img src="{{ asset('img/about-1.png') }}" alt="" width="100%" class="rounded">
+                        <div class="centered d-flex align-items-center">
+                            <div class="w-100">
+                                <iframe width="100%" height="250" src="https://www.youtube.com/embed/D39KeRKkaQY"></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

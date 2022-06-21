@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+@include('modal')
 <div class="min-vh-100">
 <section class="space-xl bg-primary pattern-2">
 <div class="container">
@@ -18,7 +19,7 @@
     <div class="row">
       <div class="col-md-6 mb-4 md-md-0">
       <div class="card card-body shadow">
-        <form action="{{ route('contact.send') }}" method="POST">
+        <form id="ajax-form" action="{{ route('contact.send') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label class="form-label" for="nama">Nama<span class="text-danger ms-1">*</span></label>
@@ -136,6 +137,14 @@
         $recaptcha.setAttribute("required", "required");
     }
 };
+        const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
 </script>
 @endsection
 @section('title')

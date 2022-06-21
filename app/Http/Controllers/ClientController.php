@@ -41,7 +41,7 @@ class ClientController extends Controller
             'g-recaptcha-response' => 'recaptcha',
         ]);
         if ($valid->fails()) {
-            Session::flash('failed', 'Data gagal dimasukan');
+            Session::flash('notsend', 'Data gagal dimasukan');
             return redirect()->back()->withErrors($valid->errors())->withInput();
         }else{ 
 
@@ -65,9 +65,8 @@ class ClientController extends Controller
                     $mail->subject('Contact Email Website'. ucwords($data['nama']));
                 });
             }
-            Session::flash('success', 'Berhasil mengirim pesan..');
+            Session::flash('send', 'Berhasil mengirim pesan..');
             return redirect()->back();
-            
         }
     }
 

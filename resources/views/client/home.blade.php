@@ -35,7 +35,7 @@
                     <div class="p-4 p-md-0 text-center text-md-start">
                         <img src="{{ asset('icon/1.svg') }}" alt="" width="50" />
                     </div>
-                    <h5 class="title-2 my-3 fw-semibold text-center text-md-start">Harga Bersaing</h5>
+                    <h4 class="title-2 my-3 fw-semibold text-center text-md-start">Harga Bersaing</h4>
                     <p class="text-secondary mb-0">Beriklan menyesuaikan dengan anggaran yang anda miliki</p>
                 </div>
                 <div class="col align-self-center text-center d-md-block d-none">
@@ -45,7 +45,7 @@
                     <div class="p-4 p-md-0 text-center text-md-start">
                         <img src="{{ asset('icon/2.svg') }}" alt="" width="50" />
                     </div>
-                    <h5 class="title-2 my-3 fw-semibold text-center text-md-start">Tim Profesional</h5>
+                    <h4 class="title-2 my-3 fw-semibold text-center text-md-start">Tim Profesional</h4>
                     <p class="text-secondary mb-0">Poyek perusahaan dikerjakan oleh tim yang ahli dibidangnya</p>
                 </div>
                 <div class="col align-self-center text-center d-md-block d-none">
@@ -55,7 +55,7 @@
                     <div class="p-4 p-md-0 text-center text-md-start">
                         <img src="{{ asset('icon/3.svg') }}" alt="" width="50" />
                     </div>
-                    <h5 class="title-2 my-3 fw-semibold text-center text-md-start">Bergaransi</h5>
+                    <h4 class="title-2 my-3 fw-semibold text-center text-md-start">Bergaransi</h4>
                     <p class="text-secondary mb-0">Kami mempunyai garansi yang cukup meyakinkan konsumen</p>
                 </div>
             </div>
@@ -67,7 +67,7 @@
     <section class="space-xl">
         <div class="container boo">
             <div class="mb-3 d-flex justify-content-between">
-                <h3 class="boo">Reklame Terbaru</h3>
+                <h4 class="boo title-2 fw-semibold">Reklame Terbaru</h4>
                 <a href="{{ route('reklame') }}">Reklame Lainnya</a>
             </div>
 
@@ -81,8 +81,13 @@
                                 <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</h5>
-                                <p class="font-12  text-secondary">{{ $alam->alamat }}</p>
+                                <div style="height:50px" class="d-none d-md-block">
+                                    <p class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</p>
+                                </div>
+                                <div class="d-md-none d-block">
+                                    <p class="card-title title-2  text-capitalize fw-semibold">{{ $rek->judul }}</p>
+                                </div>
+                                <p class="font-12  text-secondary">{{ substr($alam->alamat,0,100) }}..</p>
                                 <hr />
                                 <div class="row">
                                     <div class="col-6 mb-2">
@@ -128,7 +133,7 @@
                         </div>
                         <div class="col-md-6 align-self-center">
                             <div class="px-3 px-md-5">
-                                <h3 class="">Beriklan sesuai dengan anggaran Anda</h3>
+                                <h4 class="title-2 fw-semibold">Beriklan sesuai dengan anggaran Anda</h4>
                                 <p class="text-secondary">
                                     Kami akan menjadi solusi untuk mengiklankan produk, dengan anggaran yang menyesuaikan dengan Anda punya. Ada beberapa tahapan yang harus dilakukan oleh kounsumen, Untuk selengkapnya silahkan hubungi kami.
                                     <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, nihil. Labore ea doloremque tenetur quasi tempore aliquam dolorem, nulla unde dolorum enim magnam molestiae consectetur quia aut iusto laboriosam officiis. -->
@@ -153,7 +158,7 @@
             <div class="col-md-6 order-2 order-md-1 align-items-end">
             <div class="px-3 px-md-5 space-m">
                 <div class="mb-3">
-                    <h3 class="mb-0">Layanan Lainnya</h3>
+                    <h4 class="mb-0 title-2 fw-semibold">Layanan Lainnya</h4>
                     <p class="">Layanan yang akan membantu bisnis anda</p>
                 </div>
                 <ul class="list-group list-group-flush list-layanan">
@@ -225,7 +230,7 @@
             </div>
             </div>
                 <div class="col-md-6 order-1 order-md-2 layanan text-center">
-                    <img src="{{ asset('img/home-2.png') }}" alt="" width="90%" class="rounded">
+                    <img src="{{ asset('img/home-4.png') }}" alt="" width="90%" class="rounded">
                 </div>
             </div>
             <!-- <img src="https://dummyimage.com/1080x400" alt="" width="100%" /> -->
@@ -239,7 +244,7 @@
                 </div>
                 <div class="col-md-6 align-self-center">
                     <div class="px-3 px-md-5">
-                        <h3 class="">Masih bingung cari lokasi untuk beriklan ?</h3>
+                        <h4 class="title-2 fw-semibold">Masih bingung cari lokasi untuk beriklan ?</h4>
                         <p class="text-secondary">
                             Kami akan membantu anda untuk mencarikan lokasi yang tepat sesuai dengan target market produk Anda.
                         </p>
@@ -255,7 +260,7 @@
     <section class="space-xl">
         <div class="container boo">
             <div class="text-center col-md-6 offset-md-3 mb-3 px-5 px-md-0">
-                <h3 class="m-0">Partner Klien Kami</h3>
+                <h4 class="m-0 title-2 fw-semibold">Partner Klien Kami</h4>
                 <p class="text-secondary">Sudah banyak perusahaan yang menggunakan jasa kami</p>
             </div>
             <div class="row text-center">

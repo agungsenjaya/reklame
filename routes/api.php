@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::POST('foto_reklame',[ApiController::class,'foto_reklame']);
+Route::POST('foto_portofolio',[ApiController::class,'foto_portofolio']);

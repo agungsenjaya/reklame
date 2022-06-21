@@ -2,7 +2,7 @@
     <div class="container">
     <div class="px-5 px-md-0">
       <div class="text-center text-md-start">
-        <img src="{{ asset('img/logo-3.png') }}" width="150" alt="">
+        <img src="{{ asset('img/logo-3.png') }}" width="200" alt="">
       </div>
         <div class="row my-3">
             <div class="col-md-4 mb-4 mb-md-0">

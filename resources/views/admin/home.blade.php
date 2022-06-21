@@ -138,7 +138,7 @@
             @foreach($ord->take(4)->reverse() as $or)
               <li class="list-group-item">
                 <div class="media">
-                  <i class="bi-layers-fill h2 me-3 text-primary"></i>
+                  <i class="bi-layers-fill h2 me-3 text-secondary"></i>
                   <div class="media-body">
                   <p class="title-2 mb-0 text-capitalize">{{ $or->reklame->judul }}</p>
                     <small class="text-secondary">

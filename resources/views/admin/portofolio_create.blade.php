@@ -26,6 +26,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Deskripsi<span class="text-danger ms-1">*</span></label>
+                            <!-- <textarea id="summer" name="content" required></textarea> -->
                             <textarea id="summer" name="content" required></textarea>
                         </div>
                         <div>
@@ -36,30 +37,53 @@
 </div>
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('csss/editor.css') }}">
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/ckeditor.js" integrity="sha512-tjxUra6WjSA8H5+nC7G61SVqEXj1e958LdR4N8BGZeRx9tObm/YhsrUzY6tH4EuHQyZqOyu317pgV7f8YPFoAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js" integrity="sha512-DB4Mu+YChAdaLiuKCybPULuNSoFBZ2flD9vURt7PgU/7pUDnwgZEO+M89GjBLvK9v/NaixpswQtQRPSMRQwYIA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 <script>
-    $('#summer').summernote({
-        tabsize: 2,
-        height: 300,
-        toolbar: [
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['font', ['strikethrough', 'superscript', 'subscript']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ],
-        callbacks: {
-          onPaste: function (e) {
-                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                e.preventDefault();
-                document.execCommand('insertText', false, bufferText);
-            }
-          }
-      });
+
+ClassicEditor
+.create( document.querySelector( '#summer' ) )
+.catch( error => {
+console.error( error );
+} );
+
+    // tinymce.init({
+    //         selector: 'textarea#summer',
+    //         height: 400,
+    //         menubar: false,
+    //         plugins: [
+    //             'advlist autolink lists link image charmap print preview anchor',
+    //             'searchreplace visualblocks code fullscreen',
+    //             'insertdatetime media table paste code help wordcount', 'image'
+    //         ],
+    //         automatic_uploads: true,
+    //         toolbar: 'undo redo | link image | formatselect | ' +
+    //             'bold italic backcolor | alignleft aligncenter ' +
+    //             'alignright alignjustify | bullist numlist outdent indent | ' +
+    //             'removeformat | help',
+    //         content_css: '//www.tiny.cloud/css/codepen.min.css',
+    //     });
+
+        // tinymce.activeEditor.uploadImages(function(success) {
+        //   $.post('https://localhost:8000/api/foto_portofolio', tinymce.activeEditor.getContent()).done(function() {
+        //     console.log("Uploaded images and posted content as an ajax request.");
+        //   });
+        // });
+
+      const modLoading = new bootstrap.Modal('#modLoading', {
+            keyboard: false,
+            backdrop: 'static',
+          });
+        $("#ajax-form").submit(function(e){
+          modLoading.show();
+              return true;
+          });
+
 </script>
 @endsection
     </x-app-layout>
