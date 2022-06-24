@@ -24,8 +24,8 @@
 
                 </div>
                 </div>
-                <!-- <img src="{{ asset($data->foto) }}" alt="" width="100%"> -->
-                <img src="https://dummyimage.com/1349x700" alt="" width="100%">
+                <img src="{{ asset($data->foto) }}" alt="" width="100%">
+                <!-- <img src="https://dummyimage.com/1349x700" alt="" width="100%"> -->
                 <!-- <hr> -->
                 <div class="my-3 blog">
                     {!! $data->content  !!}
@@ -49,7 +49,7 @@
                     <div class="swiper-slide">
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('portofolio.view',['id' => $port -> slug]) }}">
-                            <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
+                            <div class="rounded" style="background:url({{ asset($port->foto) }});background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title title-2  text-capitalize fw-semibold">{{ $port->judul }}</h5>

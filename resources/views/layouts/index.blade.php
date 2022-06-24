@@ -31,7 +31,7 @@
     <body class="antialiased">
         <div class="fixed-bottom text-end">
             <div class="m-3">
-                <a href="https://api.whatsapp.com/send?phone=6281288874567&text=Halo%20saya%2C%20ingin%20menanyakan%20lebih%20lanjut%20tentang%20beriklan" target="_blank">
+                <a href="https://api.whatsapp.com/send?phone=62811845432&text=Halo%20saya%2C%20ingin%20menanyakan%20lebih%20lanjut%20tentang%20beriklan" target="_blank">
                     <img src="{{ asset('icon/whatsapp.svg') }}" alt="" width="50">
                 </a>
             </div>

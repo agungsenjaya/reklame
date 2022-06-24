@@ -51,21 +51,21 @@ class PortofolioController extends Controller
             $img->move('img/portofolio', strtolower($img_new));
 
             $detail=$request->input('content');
-            $dom = new \DomDocument();
-            @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
-            $images = $dom->getElementsByTagName('img');
-            foreach($images as $k => $img){
-                $data = $img->getAttribute('src');
-                list($type, $data) = explode(';', $data);
-                list(, $data)      = explode(',', $data);
-                $data = base64_decode($data);
-                $image_name= "/img/portofolio/" . time().$k.'.png';
-                $path = public_path() . $image_name;
-                file_put_contents($path, $data);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_name);
-            }
-            $detail = $dom->saveHTML();
+            // $dom = new \DomDocument();
+            // @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+            // $images = $dom->getElementsByTagName('img');
+            // foreach($images as $k => $img){
+            //     $data = $img->getAttribute('src');
+            //     list($type, $data) = explode(';', $data);
+            //     list(, $data)      = explode(',', $data);
+            //     $data = base64_decode($data);
+            //     $image_name= "/img/portofolio/" . time().$k.'.png';
+            //     $path = public_path() . $image_name;
+            //     file_put_contents($path, $data);
+            //     $img->removeAttribute('src');
+            //     $img->setAttribute('src', $image_name);
+            // }
+            // $detail = $dom->saveHTML();
 
             $data = Portofolio::create([
                 'user_id' => Auth::user()->id,
@@ -135,31 +135,30 @@ class PortofolioController extends Controller
 
 
             $detail=$request->input('content');
-            $dom = new \DomDocument();
+            // $dom = new \DomDocument();
             // libxml_use_internal_errors(true);
-            @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            $images = $dom->getElementsByTagName('img');
-
-            foreach($images as $img){
-                $src = $img->getAttribute('src');
-                if(preg_match('/data:image/', $src)){
-                    // get the mimetype
-                    preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
-                    $mimetype = $groups['mime'];
+            // @$dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            // $images = $dom->getElementsByTagName('img');
+            // foreach($images as $img){
+            //     $src = $img->getAttribute('src');
+            //     if(preg_match('/data:image/', $src)){
+            //         // get the mimetype
+            //         preg_match('/data:image\/(?<mime>.*?)\;/', $src, $groups);
+            //         $mimetype = $groups['mime'];
     
-                    $filename = uniqid();
-                    $filepath = public_path('/img/portofolio/$filename.$mimetype');
+            //         $filename = uniqid();
+            //         $filepath = public_path('/img/portofolio/$filename.$mimetype');
     
-                    $image = Image::make($src)
-                      ->encode($mimetype, 50)  
-                      ->save($filepath);
+            //         $image = Image::make($src)
+            //           ->encode($mimetype, 50)  
+            //           ->save($filepath);
     
-                    $new_src = asset($filepath);
-                    $img->removeAttribute('src');
-                    $img->setAttribute('src', $new_src);
-                }
-            }
-            $detail = $dom->saveHTML();
+            //         $new_src = asset($filepath);
+            //         $img->removeAttribute('src');
+            //         $img->setAttribute('src', $new_src);
+            //     }
+            // }
+            // $detail = $dom->saveHTML();
 
             $data->judul = strtolower($request->judul);
             $data->content = $detail;
@@ -181,6 +180,28 @@ class PortofolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Portofolio::find($id);
+    	$data->delete();
+    	return redirect()->route('portofolio.index');
     }
+
+    public function upload(Request $request) {
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+        
+            $request->file('upload')->move(public_path('img/portofolio'), $fileName);
+   
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('img/portofolio/'.$fileName); 
+            $msg = 'Image uploaded successfully'; 
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+               
+            @header('Content-type: text/html; charset=utf-8'); 
+            echo $response;
+        }
+    }
+    
 }

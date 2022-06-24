@@ -2,7 +2,7 @@
     <div class="container">
     <div class="px-5 px-md-0">
       <div class="text-center text-md-start">
-        <img src="{{ asset('img/logo-3.png') }}" width="200" alt="">
+        <img src="{{ asset('img/map-white.png') }}" width="200" alt="">
       </div>
         <div class="row my-3">
             <div class="col-md-4 mb-4 mb-md-0">
@@ -14,28 +14,21 @@ Kecamatan Cisaat Kabupaten Sukabumi, 43152</p>
             <div class="col-md">
             <ul class="nav justify-content-center justify-content-md-end nav-social align-self-center">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="https://web.facebook.com/mediaapersada" target="_blank">
                   <div class="btn-icon bg-white text-center">
                   <i class="fab fa-facebook-f"></i>
                   </div>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <div class="btn-icon bg-white text-center">
-                    <i class="fab fa-twitter"></i>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="https://www.instagram.com/mediaapersada" target="_blank">
                   <div class="btn-icon bg-white text-center">
                   <i class="fab fa-instagram"></i>
                   </div>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="mailto:mediaapersada@gmail.com?subject=Customer Website" target="_blank">
                   <div class="btn-icon bg-white text-center">
                   <i class="bi-envelope-fill"></i>
                   </div>
@@ -49,12 +42,12 @@ Kecamatan Cisaat Kabupaten Sukabumi, 43152</p>
             <ul class="nav nav-foot justify-content-center justify-content-md-start">
                 <li class="nav-item">
                     <a class="nav-link text-white ps-2 ps-md-0">
-                    Telp : 0812 8887 4567
+                    Telp : 0811845432
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white pe-2 pe-md-0">
-                    Email : enquiry@mapkreatif.com
+                    Email : mediaapersada@gmail.com
                     </a>
                 </li>
             </ul>

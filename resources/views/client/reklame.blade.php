@@ -67,7 +67,7 @@
                           <div class="col-md-4">
                               <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                   <!-- <img src="{{ asset($foto[0]->url) }}" alt="" width="100%" class="rounded mb-3 mb-sm-0"> -->
-                                  <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
+                                  <div class="rounded" style="background:url({{ asset($foto[0]->url) }});background-size: cover;height:300px;background-position:center"></div>
                                 </a>
                           </div>
                           <div class="col-md">
@@ -77,17 +77,16 @@
 </div>
 
                           <div class="row card-body text-capitalize">
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-6 mb-2">
             <div class="media">
                 <i class="bi bi-arrows-fullscreen h3 align-self-center me-2 text-primary"></i>
             <div class="media-body">
                 <p class="font-12 text-secondary mb-0">Ukuran Meter</p>
-                <!-- <p class="title-2 fw-semibold mb-0"><span>{{ $ukuran->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $ukuran->panjang }}m</span></p> -->
-                <p class="title-2 fw-semibold mb-0"><span>4m</span> <i class="bi bi-x"></i> <span>3m</span></p>
+                <p class="title-2 fw-semibold mb-0"><span>{{ $ukuran->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $ukuran->panjang }}m</span></p>
             </div>
             </div>
         </div>
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-6 mb-2">
         <div class="media">
             <!-- @if($rek->tipe == 'portrait')
                 <i class="bi bi-phone h3 align-self-center me-2 text-primary"></i>
@@ -101,7 +100,7 @@
         </div>
         </div>
         </div>
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-6 mb-2">
         <div class="media">
                 <i class="bi bi-compass h3 align-self-center me-2 text-primary"></i>
             <div class="media-body">
@@ -110,7 +109,7 @@
         </div>
         </div>
         </div>
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-6 mb-2">
         <div class="media">
                 <i class="bi bi-crop h3 align-self-center me-2 text-primary"></i>
             <div class="media-body">
@@ -119,7 +118,7 @@
         </div>
         </div>
         </div>
-        <div class="col-md-4 col-6 mb-2">
+        <div class="col-6 mb-2 d-none">
         <div class="media">
                 <i class="bi bi-check-circle h3 align-self-center me-2 text-primary"></i>
             <div class="media-body">
@@ -132,7 +131,7 @@
         </div>
     </div>
     <div class="card-footer d-flex justify-content-end border-top">
-    <a target="_blank" href="https://wa.me/6281288874567?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$rek->slug) }}" class="btn btn-primary">Beli Sekarang</a>
+    <a target="_blank" href="https://wa.me/62811845432?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$rek->slug) }}" class="btn btn-primary">Beli Sekarang</a>
     <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}" class="btn btn-outline-primary ms-3">Lihat Detail</a>
 </div>
                               

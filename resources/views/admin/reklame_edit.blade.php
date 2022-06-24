@@ -172,6 +172,7 @@ $arah = ['utara','timur laut','timur','tenggara','selatan','barat daya','barat',
       </div>
     </div>
     <button type="submit" class="btn-ajax btn btn-primary">Update Reklame</button>
+    <a class="ms-2 btn btn-outline-primary" href="{{ route('reklame.delete',['id' => $data -> id]) }}">Hapus</a>
     </form>
 @section('css')
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">

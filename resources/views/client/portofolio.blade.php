@@ -30,7 +30,7 @@
                       <div class="row">
                           <div class="col-md-4">
                               <a href="{{ route('portofolio.view',['id' => $port -> slug]) }}">
-                              <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:250px;background-position:center"></div>
+                              <div class="rounded" style="background:url({{ asset($port->foto) }});background-size: cover;height:250px;background-position:center"></div>
                                 </a>
                           </div>
                           <div class="col-md">

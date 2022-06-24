@@ -53,7 +53,7 @@
                 </div>
                 
               </div>
-              <a href="{{ route('order.index') }}"  class="list-group-item list-group-item-action {{ ($header == 'Order') ? 'list-active' : '' }}"><i class="bi-sliders2 me-3"></i>Table Order</a>
+              <a href="{{ route('order.index') }}"  class="d-none list-group-item list-group-item-action {{ ($header == 'Order') ? 'list-active' : '' }}"><i class="bi-sliders2 me-3"></i>Table Order</a>
   <a href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#nav-2" class="list-group-item d-flex justify-content-between"><i class="bi-collection-fill me-3"></i>Brand<i class="bi-chevron-down ms-auto"></i></a>
   <div class="bg-lab-2 collapse {{ ($header == 'Brand' || $header == 'Tambah Brand' || $header == 'Edit Brand') ? 'show' : '' }}" id="nav-2" style="">
 

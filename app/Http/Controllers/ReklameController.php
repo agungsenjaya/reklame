@@ -188,6 +188,8 @@ class ReklameController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Reklame::find($id);
+    	$data->delete();
+    	return redirect()->route('reklame.index');
     }
 }

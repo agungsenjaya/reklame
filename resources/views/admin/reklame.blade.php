@@ -76,7 +76,7 @@
         </td>
         <td>
           <div class="d-flex">
-            <a href="javascript:void(0)" class="btn btn-primary btn-sm rounded flex-fill me-3" data-bs-toggle="modal" data-bs-target="#modal-{{ $rek->id }}">
+            <a href="javascript:void(0)" class="btn btn-primary btn-sm rounded flex-fill me-3 d-none" data-bs-toggle="modal" data-bs-target="#modal-{{ $rek->id }}">
             @if($order)
             Details
             @else

@@ -78,7 +78,8 @@
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                 <!-- <img src="{{ asset($fotoo[0]->url) }}" class="card-img-top rounded" alt="..." /> -->
-                                <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
+                                <!-- <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div> -->
+                                <div class="rounded" style="background:url({{ asset($fotoo[0]->url) }});background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
                                 <div style="height:50px" class="d-none d-md-block">
@@ -92,8 +93,7 @@
                                 <div class="row">
                                     <div class="col-6 mb-2">
                                         <p class="font-12  text-secondary mb-0">Ukuran Meter</p>
-                                        <!-- <p class="  mb-0"><span>{{ $uku->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $uku->panjang }}m</span></p> -->
-                                        <p class=" mb-0 fw-semibold title-2"><span>4m</span> <i class="bi bi-x"></i> <span>3m</span></p>
+                                        <p class="  mb-0 fw-semibold title-2"><span>{{ $uku->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $uku->panjang }}m</span></p>
                                     </div>
                                     <div class="col-6 mb-2">
                                         <p class="font-12  text-secondary mb-0">Tipe</p>
@@ -354,15 +354,15 @@ Beranda
 @section('meta')
 <meta itemprop="name" content="Beranda | {{ config('app.name') }}">
 <meta itemprop="description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
-<meta itemprop="image" content="htps://dummyimage.com/600x400">
+<meta itemprop="image" content="{{ asset('img/meta.jpg') }}">
 
 <meta name="twitter:title" content="Beranda | {{ config('app.name') }}">
 <meta name="twitter:description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
-<meta name="twitter:image:src" content="htps://dummyimage.com/600x400">
+<meta name="twitter:image:src" content="{{ asset('img/meta.jpg') }}">
 <meta name=twitter:card content="summary_large_image">
 
 <meta property="og:title" content="Beranda | {{ config('app.name') }}">
-<meta property="og:image" content="htps://dummyimage.com/600x400">
+<meta property="og:image" content="{{ asset('img/meta.jpg') }}">
 <meta property="og:description" content="Advertising sukabumi, menerima pembuatan dan pemasaran reklame,neon, billboard daerah sukabumi dan luar kota.">
 <meta property="og:url" content="{{ route('home') }}">
 @endsection

@@ -22,8 +22,8 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                     @endphp
                                     <div class="swiper-slide">
                                         <a href="javascript:void(0)" data-fancybox="foto" data-src="{{ asset($fo->url) }}" data-caption="{{ ucfirst($data->judul) }}">
-                                            <!-- <img src="{{ asset($fo->url) }}" width="100%" class="rounded" /> -->
-                                            <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" />
+                                            <img src="{{ asset($fo->url) }}" width="100%" class="rounded" />
+                                            <!-- <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" /> -->
                                         </a>
                                     </div>
                                     @endforeach
@@ -34,8 +34,8 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                     @foreach($foto as $fo) @php $path = storage_path(); $img = str_replace('\storage','\public', $path) . $fo->url; @endphp
                                     <div class="swiper-slide">
                                         <a href="javascript:void(0)">
-                                            <!-- <img src="{{ asset($fo->url) }}" width="100%" class="rounded" /> -->
-                                            <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" />
+                                            <img src="{{ asset($fo->url) }}" width="100%" class="rounded" />
+                                            <!-- <img src="https://dummyimage.com/700x500" class="rounded" alt="..." width="100%" /> -->
                                         </a>
                                     </div>
                                     @endforeach
@@ -59,7 +59,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                         </div>
                         <div class="col-md-4">
                             <div>
-                                <a href="https://wa.me/6281288874567?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$data->slug) }}" class="btn btn-lg w-100 rounded btn-primary" target="_blank">Beli Sekarang</a>
+                                <a href="https://wa.me/62811845432?text=Halo%20saya%20mau%20menanyakan%20detail%20tentang%20produk%20{{ str_replace('-','%20',$data->slug) }}" class="btn btn-lg w-100 rounded btn-primary" target="_blank">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -69,17 +69,16 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                     <h6 class="title-2 fw-semibold mt-4">Spesifikasi Reklame</h6>
                     <hr />
                     <div class="row card-body text-capitalize">
-                        <div class="col-md-4 col-6 mb-2">
+                        <div class="col-6 mb-2">
                             <div class="media">
                                 <i class="bi bi-arrows-fullscreen h3 align-self-center me-2 text-primary"></i>
                                 <div class="media-body">
                                     <p class="font-12 text-secondary mb-0">Ukuran Meter</p>
-                                    <!-- <p class="title-2 fw-semibold mb-0"><span>{{ $ukuran->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $ukuran->panjang }}m</span></p> -->
-                                    <p class="title-2 fw-semibold mb-0"><span>4m</span> <i class="bi bi-x"></i> <span>3m</span></p>
+                                    <p class="title-2 fw-semibold mb-0"><span>{{ $ukuran->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $ukuran->panjang }}m</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-6 mb-2">
+                        <div class="col-6 mb-2">
                             <div class="media">
                                 <i class="bi bi-aspect-ratio h3 align-self-center me-2 text-primary"></i>
                                 <div class="media-body">
@@ -88,7 +87,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-6 mb-2">
+                        <div class="col-6 mb-2">
                             <div class="media">
                                 <i class="bi bi-compass h3 align-self-center me-2 text-primary"></i>
                                 <div class="media-body">
@@ -97,7 +96,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-6 mb-2">
+                        <div class="col-6 mb-2">
                             <div class="media">
                                 <i class="bi bi-crop h3 align-self-center me-2 text-primary"></i>
                                 <div class="media-body">
@@ -106,7 +105,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-6 mb-2">
+                        <div class="col-6 mb-2 d-none">
                             <div class="media">
                                 <i class="bi bi-check-circle h3 align-self-center me-2 text-primary"></i>
                                 <div class="media-body">
@@ -140,7 +139,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                         <div class="card bg-transparent h-100">
                             <a href="{{ route('reklame.view',['id' => $rek -> slug]) }}">
                                 <!-- <img src="{{ asset($fotoo[0]->url) }}" class="card-img-top rounded" alt="..." /> -->
-                                <div class="rounded" style="background:url('https://dummyimage.com/700x500');background-size: cover;height:300px;background-position:center"></div>
+                                <div class="rounded" style="background:url({{ asset($fotoo[0]->url) }});background-size: cover;height:300px;background-position:center"></div>
                             </a>
                             <div class="card-body">
                                 <div style="height:50px" class="d-none d-md-block">
@@ -154,8 +153,7 @@ $order = \App\Models\Order::where('reklame_id', $data->id)->where('status','yes'
                                 <div class="row">
                                     <div class="col-6 mb-2">
                                         <p class="font-12  text-secondary mb-0">Ukuran Meter</p>
-                                        <!-- <p class="  mb-0"><span>{{ $uku->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $uku->panjang }}m</span></p> -->
-                                        <p class=" mb-0 fw-semibold title-2"><span>4m</span> <i class="bi bi-x"></i> <span>3m</span></p>
+                                        <p class="mb-0 fw-semibold title-2"><span>{{ $uku->tinggi }}m</span> <i class="bi bi-x"></i> <span>{{ $uku->panjang }}m</span></p>
                                     </div>
                                     <div class="col-6 mb-2">
                                         <p class="font-12  text-secondary mb-0">Tipe</p>
@@ -295,15 +293,15 @@ Fancybox.bind("[data-fancybox]", {
 @section('meta')
 <meta itemprop="name" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
 <meta itemprop="description" content="{{ substr($data->content, 0 , 100) }}">
-<meta itemprop="image" content="{{ asset($data->foto) }}">
+<meta itemprop="image" content="{{ asset($foto[0]->url) }}">
 
 <meta name="twitter:title" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
 <meta name="twitter:description" content="{{ substr($data->content, 0 , 100) }}">
-<meta name="twitter:image:src" content="{{ asset($data->foto) }}">
+<meta name="twitter:image:src" content="{{ asset($foto[0]->url) }}">
 <meta name=twitter:card content="summary_large_image">
 
 <meta property="og:title" content="{{ ucfirst($data->judul) }} | {{ config('app.name') }}">
-<meta property="og:image" content="{{ asset($data->foto) }}">
+<meta property="og:image" content="{{ asset($foto[0]->url) }}">
 <meta property="og:description" content="{{ substr($data->content, 0 , 100) }}">
 <meta property="og:url" content="{{ route('reklame.view',['id' => $data -> slug]) }}">
 @endsection

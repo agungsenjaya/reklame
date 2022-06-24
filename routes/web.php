@@ -65,6 +65,7 @@ Route::GROUP(['prefix' => 'admin',  'middleware' => ['auth:sanctum',config('jets
     Route::GET('/portofolio/edit/{id}',[PortofolioController::class,'edit'])->name('portofolio.edit');
     Route::POST('/portofolio/edit/update/{id}',[PortofolioController::class,'update'])->name('portofolio.update');
     Route::GET('/portofolio/edit/delete/{id}',[PortofolioController::class,'destroy'])->name('portofolio.delete');
+    Route::POST('/portofolio/upload',[PortofolioController::class,'upload'])->name('portofolio.upload');
 
 });
 

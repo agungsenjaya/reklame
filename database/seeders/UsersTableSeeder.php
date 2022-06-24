@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'media adhi persada',
-            'email' => 'enquiry@mapkreatif.com',
+            'email' => 'mediaapersada@gmail.com',
             'password' => Hash::make('media123'),
         ]);
     }

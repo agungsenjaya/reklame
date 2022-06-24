@@ -213,6 +213,14 @@ label, .input-group-text, thead {
     border-color: transparent;
   } 
 
+  .blog img {
+    text-align: center !important;
+    margin: 0 auto;
+    display: block;
+    max-width: 80%;
+    height: auto !important;
+  }
+
   @media (max-width: 992px) { 
     .nav-top {
         /* text-transform: uppercase; */
@@ -253,7 +261,9 @@ label, .input-group-text, thead {
         bottom: 0;
       }
       .blog img {
-        width: 100% !important;
+        /* width: 100% !important; */
+        max-width: 100%;
+        height: auto !important;
     }
   }
 

@@ -32,6 +32,7 @@
                         </div>
                         <div>
                                 <button type="submit" class="btn btn-primary">Update Portofolio</button>
+                                <a class="ms-2 btn btn-outline-primary" href="{{ route('portofolio.delete',['id' => $data -> id]) }}">Hapus</a>
                         </div>
                     </form>
             </div>
@@ -41,27 +42,34 @@
 @endsection
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.19.0/ckeditor.js" integrity="sha512-tjxUra6WjSA8H5+nC7G61SVqEXj1e958LdR4N8BGZeRx9tObm/YhsrUzY6tH4EuHQyZqOyu317pgV7f8YPFoAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('#summer').summernote({
-        tabsize: 2,
-        height: 300,
-        toolbar: [
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['font', ['strikethrough', 'superscript', 'subscript']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ],
-        callbacks: {
-          onPaste: function (e) {
-                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                e.preventDefault();
-                document.execCommand('insertText', false, bufferText);
-            }
-          }
-      });
+    // $('#summer').summernote({
+    //     tabsize: 2,
+    //     height: 300,
+    //     toolbar: [
+    //       ['style', ['bold', 'italic', 'underline', 'clear']],
+    //       ['font', ['strikethrough', 'superscript', 'subscript']],
+    //       ['color', ['color']],
+    //       ['para', ['ul', 'ol', 'paragraph']],
+    //       ['table', ['table']],
+    //       ['insert', ['link', 'picture', 'video']],
+    //       ['view', ['fullscreen', 'codeview', 'help']]
+    //     ],
+    //     callbacks: {
+    //       onPaste: function (e) {
+    //             var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+    //             e.preventDefault();
+    //             document.execCommand('insertText', false, bufferText);
+    //         }
+    //       }
+    //   });
+
+    CKEDITOR.replace('summer', {
+        filebrowserUploadUrl: "{{ route('portofolio.upload', ['_token' => csrf_token() ]) }}",
+        filebrowserUploadMethod: 'form',
+        height: 500
+    });
 
       const modLoading = new bootstrap.Modal('#modLoading', {
             keyboard: false,

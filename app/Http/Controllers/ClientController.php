@@ -60,9 +60,9 @@ class ClientController extends Controller
             if ($send) {
                 Mail::send('email.contact', ['data' => $data], function($mail) use($data) {
                     $mail->from($data['email'], $data['nama']);
-                    $mail->to('enquiry@mapkreatif.com', 'Contact Email Website');
-                    // $mail->to('senjayaml@gmail.com', 'San Central Indah');
-                    $mail->subject('Contact Email Website'. ucwords($data['nama']));
+                    // $mail->to('mediaapersada@gmail.com', 'Mediaapersada');
+                    $mail->to('agungsenjaya813@gmail.com', 'Mediaapersada');
+                    $mail->subject('Customer Website'. ucwords($data['nama']));
                 });
             }
             Session::flash('send', 'Berhasil mengirim pesan..');

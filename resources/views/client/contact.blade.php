@@ -53,7 +53,7 @@
           </div>
           <div class="media-body">
               <p class="mb-0 title-2 fw-semibold text-primary">Alamat Email</p>
-              <a href="mailto:enquiry@mapkreatif.com" class="text-secondary no-dec">enquiry@mapkreatif.com</a>
+              <a href="mailto:mediaapersada@gmail.com?subject=Customer Website" class="text-secondary no-dec">mediaapersada@gmail.com</a>
             </div>
         </div>
   </li>
@@ -64,7 +64,7 @@
         </div>
           <div class="media-body">
               <p class="mb-0 title-2 fw-semibold text-primary">Nomor Telepon</p>
-              <a href="tel:+6281288874567" class="text-secondary no-dec">0812 8887 4567</a>
+              <a href="tel:+62811845432" class="text-secondary no-dec">0811845432</a>
             </div>
         </div>
   </li>
@@ -75,7 +75,7 @@
         </div>
           <div class="media-body">
               <p class="mb-0 title-2 fw-semibold text-primary">Whatsapp</p>
-              <a href="https://api.whatsapp.com/send?phone=6281288874567&text=Halo%20saya%2C%20ingin%20menanyakan%20lebih%20lanjut%20tentang%20beriklan" target="_blank" class="text-secondary no-dec">0812 8887 4567</a>
+              <a href="https://api.whatsapp.com/send?phone=62811845432&text=Halo%20saya%2C%20ingin%20menanyakan%20lebih%20lanjut%20tentang%20beriklan" target="_blank" class="text-secondary no-dec">0811845432</a>
             </div>
         </div>
   </li>
