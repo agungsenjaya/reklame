@@ -28,7 +28,7 @@
         <h4 class="mt-3 mb-0">Success Notification</h4>
         <p class="text-secondary">Data berhasil dimasukan kedalam database</p>
       </div>
-      @else if(Session::has('failed'))
+      @elseif(Session::has('failed'))
       <div class="modal-body text-center">
         <i class="bi-x-circle-fill display-5 text-danger"></i>
         <h4 class="mt-3 mb-0">Failed Notification</h4>
@@ -53,7 +53,7 @@
         <h4 class="mt-3 mb-0">Email Terkirim</h4>
         <p class="text-secondary">Balasan akan dikirim ke email anda, Terima kasih.</p>
       </div>
-      @else if(Session::has('notsend'))
+      @elseif(Session::has('notsend'))
       <div class="modal-body text-center">
         <i class="bi-x-circle-fill display-5 text-danger"></i>
         <h4 class="mt-3 mb-0">Email Gagal</h4>
